@@ -1,0 +1,11 @@
+<h1>Hi, welcome to my blog!</h1>
+<h2><%= link_to "Create New Post", new_post_path %></h2>
+
+<% @post.each do |post| %>
+    <div class="panel">
+        <h2><%= link_to post.title, post_path(post) %></h2>
+        <p><%= link_to "edit", edit_post_path(post) %> |
+           <%= link_to "delete", post_path(post), method: :delete, data: {confirm: "Are you sure?"} %>
+        </p>
+    </div>
+<% end %>
