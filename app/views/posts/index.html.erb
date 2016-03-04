@@ -1,11 +1,43 @@
-<h1>Hi, welcome to my blog!</h1>
-<h2><%= link_to "Create New Post", new_post_path %></h2>
+<!-- <h1>Hi, welcome to my blog!</h1>
+<h2><%= link_to "Create New Post", new_post_path %></h2> -->
 
-<% @post.each do |post| %>
-    <div class="panel">
-        <h2><%= link_to post.title, post_path(post) %></h2>
-        <p><%= link_to "edit", edit_post_path(post) %> |
-           <%= link_to "delete", post_path(post), method: :delete, data: {confirm: "Are you sure?"} %>
-        </p>
+<!-- Page Header -->
+<!-- Set your background image for this header on the line below. -->
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="site-heading">
+                    <h1>Code Craftsman</h1>
+                    <hr class="small">
+                    <span class="subheading">My adventures into Ruby, Javascript, and Web Technologies</span>
+                </div>
+            </div>
+        </div>
     </div>
-<% end %>
+</header>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <% @post.each do |post| %>
+                <div class="post-preview">
+                    <a href="post.html">
+                        <h2 class="post-title">
+                            <%= link_to post.title, post_path(post) %>
+                        </h2>
+                        <!-- <h3 class="post-subtitle">
+                            lorem ipsum blah blah.
+                        </h3> -->
+                    </a>
+                    <p class="post-meta">
+                        <%= link_to "edit", edit_post_path(post) %> |
+                        <%= link_to "delete", post_path(post), method: :delete, data: {confirm: "Are you sure?"} %>
+                    </p>
+                </div>
+                <hr>
+            <% end %>
+        </div>
+    </div>
+</div>
